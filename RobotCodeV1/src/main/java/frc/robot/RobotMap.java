@@ -18,6 +18,8 @@ public class RobotMap {
 	public static final int RIGHT_STICK_PORT = 0;
 	public static final int LEFT_STICK_Y = 0;
 	public static final int RIGHT_STICK_Y = 0;
+	
+	public static int liftPWM = 5;
 
 
 
