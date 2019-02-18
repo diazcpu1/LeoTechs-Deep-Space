@@ -1,0 +1,37 @@
+package org.usfirst.frc.team4459.robot.subsystems;
+
+import org.usfirst.frc.team4459.robot.RobotMap;
+import org.usfirst.frc.team4459.robot.commands.SpedLift.LiftStop;
+
+import edu.wpi.first.wpilibj.Talon;
+import edu.wpi.first.wpilibj.command.Subsystem;
+
+/**
+ *
+ */
+public class SpedLift extends Subsystem {
+
+    // 5 is the PWM of the lift motor, ask Jesse if this doesn't work
+	Talon liftMotor = new Talon(RobotMap.liftPWM);
+	
+	// lift has three basic commands: up, down, and stop. 
+	// these commands are implemented in the commands (located in commands.ScissorLift)
+	
+	public void up() {
+		liftMotor.set(1.0); // if it goes the opposite way, change to negative
+	}
+	
+	public void stop() {
+		liftMotor.set(0.0); // makes the lift do literally nothing
+	}
+	
+	public void down() {
+		liftMotor.set(-1.0); // makes the lift go down
+	}
+
+    public void initDefaultCommand() {
+        // lift won't move unless a button is pressed
+        setDefaultCommand(new LiftStop());
+    }
+}
+
